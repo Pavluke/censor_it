@@ -3,6 +3,7 @@ part 'reg_exps/en.dart';
 part 'reg_exps/es.dart';
 part 'reg_exps/fr.dart';
 part 'reg_exps/it.dart';
+part 'reg_exps/pl.dart';
 part 'reg_exps/pt.dart';
 part 'reg_exps/ru.dart';
 part 'reg_exps/ua.dart';
@@ -14,6 +15,7 @@ enum CensorPattern {
   french,
   italian,
   portuguese,
+  polish,
   russian,
   spanish,
   ukraine,
@@ -29,6 +31,7 @@ enum CensorPattern {
         CensorPattern.french => _frRegExp,
         CensorPattern.italian => _itRegExp,
         CensorPattern.portuguese => _ptRegExp,
+        CensorPattern.polish => _plRegexp,
         CensorPattern.russian => _ruRegexp,
         CensorPattern.spanish => _esRegExp,
         CensorPattern.ukraine => _uaRegExp,
