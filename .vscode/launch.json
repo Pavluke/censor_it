@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "censore_it_ru",
+            "name": "censor_it_ru",
             "request": "launch",
             "type": "dart"
         }

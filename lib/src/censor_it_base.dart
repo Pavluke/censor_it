@@ -1,10 +1,10 @@
 import 'dart:math' show Random;
 
-import 'package:censore_it/src/regexp_pattern_enum.dart';
+import 'package:censor_it/src/censor_pattern_enum.dart';
 
-class CensoreIt {
-  CensoreIt(String text,
-      {RegExpPattern regExpPattern = RegExpPattern.english,
+class CensorIt {
+  CensorIt(String text,
+      {CensorPattern pattern = CensorPattern.all,
       List<String> chars = const [
         '!',
         '#',
@@ -15,14 +15,14 @@ class CensoreIt {
         '\$',
       ]})
       : _text = text,
-        _pattern = regExpPattern,
+        _pattern = pattern.regExp,
         _chars = chars;
   final String _text;
-  final RegExpPattern _pattern;
+  final RegExp _pattern;
   final List<String> _chars;
 
-  String _censore() {
-    final regExp = RegExp(_pattern.value, caseSensitive: false, unicode: true);
+  String get _censoredText {
+    final regExp = _pattern;
     final text = _text.replaceAllMapped(regExp, (Match match) {
       final original = match[0] ?? '';
       final random = Random();
@@ -58,34 +58,31 @@ class CensoreIt {
     return text;
   }
 
-  Stream<String> stream(Duration period) =>
-      Stream.periodic(period, (_) => _censore());
+  Stream<String> stream(Duration updatePeriod) =>
+      Stream.periodic(updatePeriod, (_) => _censoredText);
 
-  bool get hasProfanity {
-    final regExp = RegExp(_pattern.value, unicode: true);
-    return regExp.hasMatch(_text.toLowerCase());
-  }
+  bool get hasProfanity => _pattern.hasMatch(_text.toLowerCase());
 
   List<String> get swearWords {
-    final regExp = RegExp(_pattern.value, unicode: true);
-    final matches = regExp.allMatches(_text.toLowerCase());
+    final Iterable<RegExpMatch> matches =
+        _pattern.allMatches(_text.toLowerCase());
     return matches.map((match) => match.group(0)!).toSet().toList();
   }
 
   @override
-  String toString() => _censore();
+  String toString() => _censoredText;
 
   @override
   dynamic noSuchMethod(Invocation invocation) {
     if (invocation.memberName == #toString) {
-      return _censore();
+      return _censoredText;
     }
     return super.noSuchMethod(invocation);
   }
 
   @override
   bool operator ==(Object other) {
-    if (other is CensoreIt) {
+    if (other is CensorIt) {
       return _text == other._text &&
           _pattern == other._pattern &&
           _chars == other._chars;
