@@ -1,6 +1,6 @@
 name: censor_it
 ## description: 
-version: 0.0.2
+version: 0.0.3
 repository: https://github.com/pavluke/censor_it
 
 environment:
