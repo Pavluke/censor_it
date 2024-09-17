@@ -10,7 +10,7 @@ environment:
 dependencies:
   censore_it: 
     git:
-      url: https://github.com/pavluke/censore_it.git
+      url: https://github.com/pavluke/censor_it.git
 
 dev_dependencies:
   lints: ^4.0.0
