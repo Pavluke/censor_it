@@ -9,8 +9,7 @@ environment:
 # Add regular dependencies here.
 dependencies:
     censor_it: 
-      git:
-        url: https://github.com/pavluke/censor_it.git
+      path: ../
 
 dev_dependencies:
   lints: ^4.0.0

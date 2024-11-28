@@ -2,7 +2,13 @@ import 'dart:math' show Random;
 
 import 'package:censor_it/src/censor_pattern_enum.dart';
 
+/// A class for censoring text based on predefined patterns and customizable characters.
 class CensorIt {
+  /// Creates an instance of [CensorIt] with the given text, censor pattern, and characters.
+  ///
+  /// [text] is the text to be censored.
+  /// [pattern] is the censor pattern to use. Defaults to [CensorPattern.all].
+  /// [chars] is the list of characters to use for censoring. Defaults to a predefined set of characters.
   CensorIt(String text,
       {CensorPattern pattern = CensorPattern.all,
       List<String> chars = const [
@@ -17,15 +23,17 @@ class CensorIt {
       : _text = text,
         _pattern = pattern.regExp,
         _chars = chars;
+
   final String _text;
   final RegExp _pattern;
   final List<String> _chars;
 
+  /// Returns the censored text.
   String get _censoredText {
     final regExp = _pattern;
+    final random = Random();
     final text = _text.replaceAllMapped(regExp, (Match match) {
       final original = match[0] ?? '';
-      final random = Random();
       final usedChars = <String>{};
       String lastChar = '';
       final replacement = List.generate(original.length, (index) {
@@ -58,11 +66,15 @@ class CensorIt {
     return text;
   }
 
-  Stream<String> stream(Duration updatePeriod) =>
-      Stream.periodic(updatePeriod, (_) => _censoredText);
+  /// Returns a stream of censored text updated at the specified period.
+  /// [period] is the duration between updates. Defaults `Duration(seconds: 1)` if not specified.
+  Stream<String> stream({Duration? period}) =>
+      Stream.periodic(period ?? Duration(seconds: 1), (_) => _censoredText);
 
+  /// Checks if the text contains any profanity based on the censor pattern.
   bool get hasProfanity => _pattern.hasMatch(_text.toLowerCase());
 
+  /// Returns a list of swear words found in the text.
   List<String> get swearWords {
     final Iterable<RegExpMatch> matches =
         _pattern.allMatches(_text.toLowerCase());

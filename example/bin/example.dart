@@ -6,17 +6,23 @@ void main() {
 I don't give a fuck that there are a lot of obscene words here!
 I'm sure the developer of this lib is an asshole!''';
 
+  // Create an instance of CensorIt with the text and censor pattern
   final CensorIt censoredText = CensorIt(text,
       pattern: CensorPattern.fromPatterns(
           [CensorPattern.russian, CensorPattern.english]));
+
+  // Get the list of swear words
   final List<String> swearWords = censoredText.swearWords;
+
+  // Check if the text contains profanity
   final bool hasProfanity = censoredText.hasProfanity;
 
   print('Censored text: $censoredText');
   print('Has profanity: $hasProfanity');
   print('Swear words: $swearWords');
 
-  censoredText.stream(Duration(seconds: 1)).take(10).listen((String event) {
+  // Get a stream of censored text and print events
+  censoredText.stream().take(10).listen((String event) {
     print('''
 
 Stream:

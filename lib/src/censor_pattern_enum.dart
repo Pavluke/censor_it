@@ -1,3 +1,9 @@
+/// A library for managing and combining regular expressions for censoring text in multiple languages.
+///
+/// This library provides an enum `CensorPattern` that represents different languages and allows
+/// combining multiple regular expressions for censoring purposes.
+library censor_patterns;
+
 part 'reg_exps/de.dart';
 part 'reg_exps/en.dart';
 part 'reg_exps/es.dart';
@@ -13,28 +19,60 @@ part 'reg_exps/ru.dart';
 part 'reg_exps/sw.dart';
 part 'reg_exps/ua.dart';
 
+/// Enum representing different censor patterns for various languages.
 enum CensorPattern {
-  // add new language here
+  /// German censor pattern.
   deutsch,
+
+  /// English censor pattern.
   english,
+
+  /// Finnish censor pattern.
   finnish,
+
+  /// French censor pattern.
   french,
+
+  /// Italian censor pattern.
   italian,
+
+  /// Kazakh censor pattern.
   kazakhstan,
+
+  /// Latvian censor pattern.
   latvian,
+
+  /// Lithuanian censor pattern.
   lithuanian,
+
+  /// Portuguese censor pattern.
   portuguese,
+
+  /// Polish censor pattern.
   polish,
+
+  /// Russian censor pattern.
   russian,
+
+  /// Spanish censor pattern.
   spanish,
+
+  /// Swedish censor pattern.
   swedish,
+
+  /// Ukrainian censor pattern.
   ukraine,
-  // don't cross this line
+
+  /// Combines all censor patterns.
   all,
-  _another;
 
-  static late RegExp _anotherRegExp;
+  /// Custom censor pattern.
+  _custom;
 
+  /// Late-initialized regular expression for custom censor pattern.
+  static late RegExp _customRegExp;
+
+  /// Returns the regular expression associated with the censor pattern.
   RegExp get regExp => switch (this) {
         CensorPattern.deutsch => _deRegExp,
         CensorPattern.english => _enRegExp,
@@ -47,37 +85,41 @@ enum CensorPattern {
         CensorPattern.ukraine => _uaRegExp,
         CensorPattern.finnish => _fiRegExp,
         CensorPattern.kazakhstan => _kzRegExp,
-        CensorPattern.latvian => _lvRegexp,
-        CensorPattern.lithuanian => _ltRegexp,
-        CensorPattern.swedish => _swRegexp,
-        // don't cross this line
-        CensorPattern.all => _combineCensorPatterns(List.generate(
-            _values.length,
-            (int index) => CensorPattern.values.elementAt(index))),
-        CensorPattern._another => _anotherRegExp,
+        CensorPattern.latvian => _lvRegExp,
+        CensorPattern.lithuanian => _ltRegExp,
+        CensorPattern.swedish => _swRegExp,
+        CensorPattern.all => _combineCensorPatterns(_values),
+        CensorPattern._custom => _customRegExp,
       };
 
-  factory CensorPattern.fromPatterns(List<CensorPattern> patterns) {
-    String combinedPattern =
-        patterns.map((censorPattern) => censorPattern.regExp.pattern).join('|');
-    _anotherRegExp =
-        RegExp(combinedPattern, caseSensitive: false, unicode: true);
-    return CensorPattern._another;
+  /// Creates a custom censor pattern from a list of existing patterns.
+  ///
+  /// [patterns] is a list of [CensorPattern] to combine.
+  static fromPatterns(List<CensorPattern> patterns) {
+    _customRegExp = _combineCensorPatterns(patterns);
+    return CensorPattern._custom;
   }
 
-  factory CensorPattern.fromRegExp(RegExp regExp) {
-    _anotherRegExp = regExp;
-    return CensorPattern._another;
+  /// Creates a custom censor pattern from a given regular expression.
+  ///
+  /// [regExp] is the regular expression to use for the custom pattern.
+  static fromRegExp(RegExp regExp) {
+    _customRegExp = regExp;
+    return CensorPattern._custom;
   }
 
+  /// Combines multiple censor patterns into a single regular expression.
+  ///
+  /// [patterns] is a list of [CensorPattern] to combine.
   static RegExp _combineCensorPatterns(List<CensorPattern> patterns) {
-    String combinedPattern =
+    final combinedPattern =
         patterns.map((pattern) => pattern.regExp.pattern).join('|');
     return RegExp(combinedPattern, caseSensitive: false, unicode: true);
   }
 
+  /// Returns a list of all censor patterns except for [all] and [_custom].
   static List<CensorPattern> get _values => CensorPattern.values
       .where((value) =>
-          value != CensorPattern.all && value != CensorPattern._another)
+          value != CensorPattern.all && value != CensorPattern._custom)
       .toList();
 }
