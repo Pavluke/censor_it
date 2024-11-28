@@ -1,6 +1,9 @@
+## 1.0.2
+
+* Updated docs.
 ## 1.0.1
 
-* Update docs.
+* Updated docs.
 ## 1.0.0
 
 * Initial version.

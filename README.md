@@ -13,14 +13,7 @@ handle multiple languages and customize the characters used for censoring.
 
 ## Getting started
 
-In your `pubspec.yaml` file, add the following dependency:
-
-```yaml
-dependencies:
-  censor_it: ^1.0.0
-```
-
-Then, import the package in your Dart file:
+Import the package in your Dart file:
 
 ```dart
 import 'package:censor_it/censor_it.dart';

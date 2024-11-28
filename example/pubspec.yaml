@@ -8,8 +8,8 @@ environment:
 
 # Add regular dependencies here.
 dependencies:
-    censor_it: 
-      path: ../
+  censor_it:
+    path: ../
 
 dev_dependencies:
   lints: ^4.0.0
