@@ -27,7 +27,7 @@ void main() {
   CensorIt censorIt = CensorIt("I don't give a fuck that there are a lot of obscene words here! I'm sure the developer of this lib is an asshole!", pattern: CensorPattern.english);
 
   // Get the censored text
-  print(censorIt.toString());
+  print(censorIt);
 
   // Check if the text contains profanity
   print(censorIt.hasProfanity); // Output: true
