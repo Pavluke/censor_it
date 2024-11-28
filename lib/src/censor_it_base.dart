@@ -78,13 +78,7 @@ class CensorIt {
   List<String> get swearWords {
     final Iterable<RegExpMatch> matches =
         _pattern.allMatches(_text.toLowerCase());
-    return matches
-        .map((match) =>
-            match.group(0) ??
-            (throw Exception(
-                '`match.group(0)` method always returns a string corresponding to the entire regular expression match. This means that if the regular expression found a match, `match.group(0)` will never be `null`.')))
-        .toSet()
-        .toList();
+    return matches.map((match) => match.group(0) ?? '').toSet().toList();
   }
 
   @override

@@ -1,3 +1,6 @@
+## 1.0.3
+
+* Removed bang operator
 ## 1.0.2
 
 * Updated docs.
