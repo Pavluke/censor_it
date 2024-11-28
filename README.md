@@ -43,7 +43,7 @@ void main() {
   print(censorIt.swearWords); // Output: [fuck, asshole]
 
   // Get a stream of censored text updated every second
-  censorIt.stream(Duration(seconds: 1)).listen((censoredText) {
+  censorIt.stream(period: Duration(seconds: 1)).listen((censoredText) {
     print(censoredText);
   });
 }
