@@ -21,9 +21,6 @@ part 'reg_exps/ua.dart';
 
 /// Enum representing different censor patterns for various languages.
 enum CensorPattern {
-  /// German censor pattern.
-  deutsch,
-
   /// English censor pattern.
   english,
 
@@ -33,11 +30,14 @@ enum CensorPattern {
   /// French censor pattern.
   french,
 
+  /// German censor pattern.
+  german,
+
   /// Italian censor pattern.
   italian,
 
   /// Kazakh censor pattern.
-  kazakhstan,
+  kazakh,
 
   /// Latvian censor pattern.
   latvian,
@@ -61,7 +61,7 @@ enum CensorPattern {
   swedish,
 
   /// Ukrainian censor pattern.
-  ukraine,
+  ukrainian,
 
   /// Combines all censor patterns.
   all,
@@ -74,20 +74,20 @@ enum CensorPattern {
 
   /// Returns the regular expression associated with the censor pattern.
   RegExp get regExp => switch (this) {
-        CensorPattern.deutsch => _deRegExp,
         CensorPattern.english => _enRegExp,
+        CensorPattern.finnish => _fiRegExp,
         CensorPattern.french => _frRegExp,
+        CensorPattern.german => _deRegExp,
         CensorPattern.italian => _itRegExp,
+        CensorPattern.kazakh => _kzRegExp,
+        CensorPattern.latvian => _lvRegExp,
+        CensorPattern.lithuanian => _ltRegExp,
         CensorPattern.portuguese => _ptRegExp,
         CensorPattern.polish => _plRegExp,
         CensorPattern.russian => _ruRegExp,
         CensorPattern.spanish => _esRegExp,
-        CensorPattern.ukraine => _uaRegExp,
-        CensorPattern.finnish => _fiRegExp,
-        CensorPattern.kazakhstan => _kzRegExp,
-        CensorPattern.latvian => _lvRegExp,
-        CensorPattern.lithuanian => _ltRegExp,
         CensorPattern.swedish => _swRegExp,
+        CensorPattern.ukrainian => _uaRegExp,
         CensorPattern.all => _combineCensorPatterns(_values),
         CensorPattern._custom => _customRegExp,
       };

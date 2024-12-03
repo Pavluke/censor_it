@@ -1,6 +1,6 @@
 name: censor_it
 description: A Flutter library for censoring text based on predefined patterns and customizable characters.
-version: 1.0.3
+version: 1.0.4
 repository: https://github.com/pavluke/censor_it
 
 environment:

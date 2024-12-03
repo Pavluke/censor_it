@@ -11,6 +11,23 @@ When it comes to censoring text in your Flutter application, you might need to
 handle multiple languages and customize the characters used for censoring.
 `CensorIt` provides an easy-to-use solution for this problem.
 
+## Supported languages
+
+- 🇬🇧 English (GB)
+- 🇫🇮 Finnish (FI)
+- 🇫🇷 French (FR)
+- 🇩🇪 German (DE)
+- 🇮🇹 Italian (IT)
+- 🇰🇿 Kazakh (KZ)
+- 🇱🇻 Latvian (LV)
+- 🇱🇹 Lithuanian (LT)
+- 🇵🇹 Portuguese (PT)
+- 🇵🇱 Polish (PL)
+- 🇷🇺 Russian (RU)
+- 🇪🇸 Spanish (ES)
+- 🇸🇪 Swedish (SE)
+- 🇺🇦 Ukrainian (UA)
+
 ## Getting started
 
 Import the package in your Dart file:
