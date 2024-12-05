@@ -53,17 +53,17 @@ void main() {
       pattern: CensorPattern.english);
 
   // Get the censored text
-  print(censorIt);
+  print(censoredText);
 
   // Check if the text contains profanity
-  print(censorIt.hasProfanity); // Output: true
+  print(censoredText.hasProfanity); // Output: true
 
   // Get a list of swear words found in the text
-  print(censorIt.swearWords); // Output: [fuck, asshole]
+  print(censoredText.swearWords); // Output: [fuck, asshole]
 
   // Get a stream of censored text updated every second
-  censorIt.stream(period: Duration(seconds: 1)).listen((censoredText) {
-    print(censoredText);
+  censoredText.stream(period: Duration(seconds: 1)).listen((t) {
+    print(t);
   });
 }
 ```

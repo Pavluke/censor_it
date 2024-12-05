@@ -1,3 +1,7 @@
+## 1.1.1
+
+- Update README.md
+
 ## 1.1.0
 
 - Added extension [CensorIt] on [String]
