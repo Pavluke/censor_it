@@ -6,8 +6,14 @@ void main() {
 I don't give a fuck that there are a lot of obscene words here!
 I'm sure the developer of this lib is an asshole!''';
 
+  late CensorIt censoredText;
   // Create an instance of CensorIt with the text and censor pattern
-  final CensorIt censoredText = CensorIt(text,
+  censoredText = CensorIt(text,
+      pattern: CensorPattern.fromPatterns(
+          [CensorPattern.russian, CensorPattern.english]));
+
+  // Or you can use function from [String] extension
+  censoredText = text.censorIt(
       pattern: CensorPattern.fromPatterns(
           [CensorPattern.russian, CensorPattern.english]));
 
