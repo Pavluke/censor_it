@@ -1,3 +1,7 @@
+## 1.1.0
+
+- Added extension [CensorIt] on [String]
+
 ## 1.0.4
 
 - Enum changes

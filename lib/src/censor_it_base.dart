@@ -2,6 +2,8 @@ import 'dart:math' show Random;
 
 import 'package:censor_it/src/censor_pattern_enum.dart';
 
+part 'censor_it_extension.dart';
+
 /// A class for censoring text based on predefined patterns and customizable characters.
 class CensorIt {
   /// Creates an instance of [CensorIt] with the given text, censor pattern, and characters.

@@ -40,8 +40,17 @@ You can now use the CensorIt class to censor text:
 
 ```dart
 void main() {
+
+  const String text = "I don't give a fuck that there are a lot of obscene words here! I'm sure the developer of this lib is an asshole!";
+
+  late CensorIt censoredText;
+
   // Create an instance of CensorIt with the text to be censored
-  CensorIt censorIt = CensorIt("I don't give a fuck that there are a lot of obscene words here! I'm sure the developer of this lib is an asshole!", pattern: CensorPattern.english);
+  censoredText = CensorIt(text, pattern: CensorPattern.english);
+
+ // Or you can use function from [String] extension
+  censoredText = text.censorIt(
+      pattern: CensorPattern.english);
 
   // Get the censored text
   print(censorIt);
