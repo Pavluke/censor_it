@@ -73,7 +73,7 @@ class CensorIt {
 
   /// Returns a stream of censored text updated at the specified period.
   /// [period] is the duration between updates. Defaults `Duration(seconds: 1)` if not specified.
-  Stream<String> stream({Duration? period}) =>
+  Stream<String> stream([Duration? period]) =>
       Stream.periodic(period ?? Duration(seconds: 1), (_) => _censoredText);
 
   /// Checks if the text contains any profanity based on the censor pattern.
