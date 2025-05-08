@@ -30,6 +30,9 @@ class CensorIt {
   final RegExp _pattern;
   final List<String> _chars;
 
+  /// Returns the origin text.
+  String get origin => _text;
+
   /// Returns the censored text.
   String get _censoredText {
     final regExp = _pattern;
