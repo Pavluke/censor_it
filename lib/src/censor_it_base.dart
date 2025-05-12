@@ -12,8 +12,8 @@ class CensorIt {
   /// [pattern] is the censor pattern to use. Defaults to [CensorPattern.all].
   /// [chars] is the list of characters to use for censoring. Defaults to a predefined set of characters.
   CensorIt(String text,
-      {CensorPattern pattern = CensorPattern.all,
-      List<String> chars = const [
+      {this.pattern = CensorPattern.all,
+      this.chars = const [
         '!',
         '#',
         '%',
@@ -22,29 +22,34 @@ class CensorIt {
         '@',
         '\$',
       ]})
-      : _text = text,
-        _pattern = pattern.regExp,
-        _chars = chars;
+      : origin = text;
 
-  final String _text;
-  final RegExp _pattern;
-  final List<String> _chars;
+  /// The origin text.
+  final String origin;
 
-  /// Returns the origin text.
-  String get origin => _text;
+  /// The censor pattern.
+  final CensorPattern pattern;
 
-  /// Returns the censored text.
-  String get _censoredText {
-    final regExp = _pattern;
+  /// The list of characters to use for censoring.
+  final List<String> chars;
+
+  String? _censored;
+
+  /// The censored text.
+  String get censored => _censored ?? (_censored = _generateCensoredText());
+
+  /// Return a censored text.
+  String _generateCensoredText() {
+    final regExp = pattern.regExp;
     final random = Random();
-    final text = _text.replaceAllMapped(regExp, (Match match) {
+    final censoredText = origin.replaceAllMapped(regExp, (Match match) {
       final original = match[0] ?? '';
       final usedChars = <String>{};
       String lastChar = '';
       final replacement = List.generate(original.length, (index) {
         String char;
         do {
-          char = _chars.elementAt(random.nextInt(_chars.length));
+          char = chars.elementAt(random.nextInt(chars.length));
         } while (char == lastChar ||
             (index == 0 && char == '!') ||
             (index == original.length - 1 && char == '?'));
@@ -52,8 +57,8 @@ class CensorIt {
         usedChars.add(char);
         return char;
       });
-      if (usedChars.length < _chars.length && original.length > _chars.length) {
-        final unusedChars = _chars.toSet().difference(usedChars).toList();
+      if (usedChars.length < chars.length && original.length > chars.length) {
+        final unusedChars = chars.toSet().difference(usedChars).toList();
         final unusedChar = unusedChars[random.nextInt(unusedChars.length)];
         int unusedCharIndex;
         do {
@@ -68,45 +73,60 @@ class CensorIt {
             : replacement[charMatch.start].toLowerCase();
       });
     });
-    return text;
+    return censoredText;
   }
 
   /// Returns a stream of censored text updated at the specified period.
   /// [period] is the duration between updates. Defaults `Duration(seconds: 1)` if not specified.
-  Stream<String> stream([Duration? period]) =>
-      Stream.periodic(period ?? Duration(seconds: 1), (_) => _censoredText);
+  @Deprecated(
+      '''This method will be removed in version 1.5. Use [Stream.periodic] instead.
+Example:
+```dart
+  final censoredText = CensorIt(text,
+      pattern: CensorPattern.fromPatterns(
+          [CensorPattern.russian, CensorPattern.english]));
+  final stream =  Stream.periodic(Duration(seconds: 1), (_) => censoredText.toString())
+''')
+  Stream<String> stream([Duration? period]) => Stream.periodic(
+      period ?? Duration(seconds: 1), (_) => _generateCensoredText());
 
   /// Checks if the text contains any profanity based on the censor pattern.
-  bool get hasProfanity => _pattern.hasMatch(_text.toLowerCase());
+  bool get hasProfanity => pattern.regExp.hasMatch(origin.toLowerCase());
 
   /// Returns a list of swear words found in the text.
   List<String> get swearWords {
     final Iterable<RegExpMatch> matches =
-        _pattern.allMatches(_text.toLowerCase());
+        pattern.regExp.allMatches(origin.toLowerCase());
     return matches.map((match) => match.group(0) ?? '').toSet().toList();
   }
 
-  @override
-  String toString() => _censoredText;
+  /// Regenerate censored text.
+  void regenerateCensoredText() => _censored = _generateCensoredText();
 
+  /// Return censored text.
+  @override
+  String toString() => censored;
+
+  /// Return censored text.
   @override
   dynamic noSuchMethod(Invocation invocation) {
     if (invocation.memberName == #toString) {
-      return _censoredText;
+      return censored;
     }
     return super.noSuchMethod(invocation);
   }
 
+  /// Return `true` if [origin], [pattern], [chars] of both instances are the same.
   @override
   bool operator ==(Object other) {
     if (other is CensorIt) {
-      return _text == other._text &&
-          _pattern == other._pattern &&
-          _chars == other._chars;
+      return origin == other.origin &&
+          pattern == other.pattern &&
+          chars == other.chars;
     }
     return false;
   }
 
   @override
-  int get hashCode => _text.hashCode ^ _pattern.hashCode ^ _chars.hashCode;
+  int get hashCode => origin.hashCode ^ pattern.hashCode ^ chars.hashCode;
 }
