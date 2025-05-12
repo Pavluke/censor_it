@@ -11,8 +11,9 @@ class CensorIt {
   /// [text] is the text to be censored.
   /// [pattern] is the censor pattern to use. Defaults to [CensorPattern.all].
   /// [chars] is the list of characters to use for censoring. Defaults to a predefined set of characters.
-  CensorIt(String text,
-      {CensorPattern pattern = CensorPattern.all,
+  CensorIt(
+      {required String text,
+      CensorPattern pattern = CensorPattern.all,
       List<String> chars = const [
         '!',
         '#',
@@ -71,8 +72,17 @@ class CensorIt {
     return text;
   }
 
-  /// Returns a stream of censored text updated at the specified period.
-  /// [period] is the duration between updates. Defaults `Duration(seconds: 1)` if not specified.
+  // /// Returns a stream of censored text updated at the specified period.
+  // /// [period] is the duration between updates. Defaults `Duration(seconds: 1)` if not specified.
+  @Deprecated(
+      '''This method will be removed in version 1.5. Use [Stream.periodic] instead.
+Example:
+```dart
+  final censoredText = CensorIt(text,
+      pattern: CensorPattern.fromPatterns(
+          [CensorPattern.russian, CensorPattern.english]));
+  final stream =  Stream.periodic(Duration(seconds: 1), (_) => censoredText.toString())
+''')
   Stream<String> stream([Duration? period]) =>
       Stream.periodic(period ?? Duration(seconds: 1), (_) => _censoredText);
 

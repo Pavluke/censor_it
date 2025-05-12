@@ -1,3 +1,8 @@
+## 1.2.1
+
+- Add `origin` getter
+- Remove `stream` method
+
 ## 1.1.1
 
 - Update README.md

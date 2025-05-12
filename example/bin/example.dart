@@ -8,7 +8,8 @@ I'm sure the developer of this lib is an asshole!''';
 
   late CensorIt censoredText;
   // Create an instance of CensorIt with the text and censor pattern
-  censoredText = CensorIt(text,
+  censoredText = CensorIt(
+      text: text,
       pattern: CensorPattern.fromPatterns(
           [CensorPattern.russian, CensorPattern.english]));
 
@@ -26,12 +27,4 @@ I'm sure the developer of this lib is an asshole!''';
   print('Censored text: $censoredText');
   print('Has profanity: $hasProfanity');
   print('Swear words: $swearWords');
-
-  // Get a stream of censored text and print events
-  censoredText.stream().take(10).listen((String event) {
-    print('''
-
-Stream:
-$event''');
-  }).onDone(() => print('\nDone!'));
 }

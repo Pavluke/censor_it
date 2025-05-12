@@ -20,5 +20,5 @@ extension CensorItExt on String {
             '@',
             '\$',
           ]}) =>
-      CensorIt(this, pattern: pattern, chars: chars);
+      CensorIt(text: this, pattern: pattern, chars: chars);
 }

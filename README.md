@@ -46,7 +46,10 @@ void main() {
   late CensorIt censoredText;
 
   // Create an instance of CensorIt with the text to be censored
-  censoredText = CensorIt(text, pattern: CensorPattern.english);
+  censoredText = CensorIt(
+    text:text,
+    pattern: CensorPattern.english,
+  );
 
  // Or you can use function from [String] extension
   censoredText = text.censorIt(
@@ -60,11 +63,6 @@ void main() {
 
   // Get a list of swear words found in the text
   print(censoredText.swearWords); // Output: [fuck, asshole]
-
-  // Get a stream of censored text updated every second
-  censoredText.stream(Duration(seconds: 1)).listen((t) {
-    print(t);
-  });
 }
 ```
 
@@ -74,8 +72,6 @@ void main() {
   languages or create your own.
 - **Customizable Censor Characters**: Define your own set of characters to use
   for censoring.
-- **Stream Support**: Get a stream of censored text updated at specified
-  intervals.
 - **Profanity Detection**: Check if the text contains any profanity based on the
   censor pattern.
 - **Swear Words Extraction**: Extract a list of swear words found in the text.
@@ -91,6 +87,6 @@ know what's recently changed.
 Feel free to contribute to this project.
 
 If you find a bug or want a feature, but don't know how to fix/implement it,
-please fill an [issue](https://github.com/pavluke/censor_it/issues).\
+please fill an [issue](https://github.com/pavluke/censor_it/issues).
 If you fixed a bug or implemented a feature, please send a
 [pull request](https://github.com/pavluke/censor_it/pulls).
