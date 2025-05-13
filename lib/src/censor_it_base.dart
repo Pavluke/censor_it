@@ -97,7 +97,7 @@ Example:
   List<String> get swearWords {
     final Iterable<RegExpMatch> matches =
         pattern.regExp.allMatches(origin.toLowerCase());
-    return matches.map((match) => match.group(0) ?? '').toSet().toList();
+    return matches.map((match) => match.group(0) ?? '').toList();
   }
 
   /// Regenerate censored text.
