@@ -6,8 +6,8 @@ void main() {
 I don't give a fuck that there are a lot of obscene words here!
 I'm sure the developer of this lib is an asshole!''';
 
-  //const String text = 'Holy shit, it works!';
   late CensorIt censoredText;
+
   // Create an instance of CensorIt with the text and censor pattern
   censoredText = CensorIt(text,
       pattern: CensorPattern.fromPatterns(
@@ -23,8 +23,7 @@ I'm sure the developer of this lib is an asshole!''';
 
   // Check if the text contains profanity
   final bool hasProfanity = censoredText.hasProfanity;
-// print('');
-// print('${censoredText.origin} -> [ CensorIt ] -> $censoredText');
+
   print('Censored text: $censoredText');
   print('Has profanity: $hasProfanity');
   print('Swear words: $swearWords');

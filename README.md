@@ -1,4 +1,4 @@
-![Preview](img/preview.png)
+![Preview](images/censor_it_banner.png)
 
 [![Pub](https://img.shields.io/pub/v/censor_it.svg)](https://pub.dartlang.org/packages/censor_it)
 

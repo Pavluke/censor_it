@@ -1,3 +1,10 @@
+
+## 1.2.1
+
+- Update README.md
+- Update LICENSE
+- Update example
+
 ## 1.2.0
 
 - Refactored regexps
