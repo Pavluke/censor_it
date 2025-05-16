@@ -1,0 +1,16 @@
+final List<String> ltDirtySamples = [
+  'bybis',
+  'bybio',
+  'bybiu',
+  'bybiui',
+  'pizda',
+  'pizdos',
+  'pizdu',
+  'pizdinau',
+  'nahui',
+  'nahuj',
+  'nahuja',
+  'blet',
+  'bletai',
+  'bletu',
+];

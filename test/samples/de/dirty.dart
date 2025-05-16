@@ -1,0 +1,15 @@
+final List<String> deDirtySamples = [
+  'fick',
+  'ficken',
+  'fickst',
+  'verfickt',
+  'scheiße',
+  'scheisse',
+  'scheissdreck',
+  'arschloch',
+  'drecksau',
+  'hurensohn',
+  'fotze',
+  'fotzen',
+  'wichser',
+];

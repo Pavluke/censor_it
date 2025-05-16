@@ -1,0 +1,18 @@
+final List<String> lvDirtySamples = [
+  'pist',
+  'pisies',
+  'pisu',
+  'pisās',
+  'pizda',
+  'pizdets',
+  'pizdām',
+  'dirsa',
+  'dirsā',
+  'dirš',
+  'pimpis',
+  'pimpi',
+  'pimpja',
+  'mauka',
+  'maukas',
+  'maukām',
+];
