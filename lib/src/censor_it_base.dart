@@ -78,15 +78,8 @@ class CensorIt {
 
   /// Returns a stream of censored text updated at the specified period.
   /// [period] is the duration between updates. Defaults `Duration(seconds: 1)` if not specified.
-  @Deprecated(
-      '''This method will be removed in version 1.5. Use [Stream.periodic] instead.
-Example:
-```dart
-  final censoredText = CensorIt(text,
-      pattern: CensorPattern.fromPatterns(
-          [CensorPattern.russian, CensorPattern.english]));
-  final stream =  Stream.periodic(Duration(seconds: 1), (_) => censoredText.toString())
-''')
+  @Deprecated('Use Stream.periodic instead. '
+      'This feature was deprecated after 1.5')
   Stream<String> stream([Duration? period]) => Stream.periodic(
       period ?? Duration(seconds: 1), (_) => _generateCensoredText());
 
@@ -103,30 +96,23 @@ Example:
   /// Regenerate censored text.
   void regenerateCensoredText() => _censored = _generateCensoredText();
 
-  /// Return censored text.
-  @override
-  String toString() => censored;
-
-  /// Return censored text.
-  @override
-  dynamic noSuchMethod(Invocation invocation) {
-    if (invocation.memberName == #toString) {
-      return censored;
-    }
-    return super.noSuchMethod(invocation);
-  }
-
-  /// Return `true` if [origin], [pattern], [chars] of both instances are the same.
+  /// Return `true` if [origin], [censored], [pattern], [chars]  of both instances are the same.
   @override
   bool operator ==(Object other) {
     if (other is CensorIt) {
       return origin == other.origin &&
           pattern == other.pattern &&
-          chars == other.chars;
+          chars == other.chars &&
+          censored == other.censored;
     }
     return false;
   }
 
   @override
-  int get hashCode => origin.hashCode ^ pattern.hashCode ^ chars.hashCode;
+  int get hashCode =>
+      origin.hashCode ^ pattern.hashCode ^ chars.hashCode ^ censored.hashCode;
+
+  @override
+  String toString() =>
+      'CensorIt(origin: $origin,censored: $censored, chars: $chars, pattern: $pattern)';
 }
