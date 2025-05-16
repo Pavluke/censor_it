@@ -16,7 +16,7 @@ part 'reg_exps/lv.dart';
 part 'reg_exps/pl.dart';
 part 'reg_exps/pt.dart';
 part 'reg_exps/ru.dart';
-part 'reg_exps/sw.dart';
+part 'reg_exps/se.dart';
 part 'reg_exps/ua.dart';
 
 /// Enum representing different censor patterns for various languages.
@@ -86,7 +86,7 @@ enum CensorPattern {
         CensorPattern.polish => _plRegExp,
         CensorPattern.russian => _ruRegExp,
         CensorPattern.spanish => _esRegExp,
-        CensorPattern.swedish => _swRegExp,
+        CensorPattern.swedish => _seRegExp,
         CensorPattern.ukrainian => _uaRegExp,
         CensorPattern.all => _combineCensorPatterns(_values),
         CensorPattern._custom => _customRegExp,

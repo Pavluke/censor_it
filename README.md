@@ -5,6 +5,8 @@ characters.
 
 [![Pub](https://img.shields.io/pub/v/censor_it.svg)](https://pub.dartlang.org/packages/censor_it)
 
+![Preview](img/preview.jpg)
+
 ### Introduction
 
 When it comes to censoring text in your Flutter application, you might need to
@@ -74,8 +76,6 @@ void main() {
   languages or create your own.
 - **Customizable Censor Characters**: Define your own set of characters to use
   for censoring.
-- **Stream Support**: Get a stream of censored text updated at specified
-  intervals.
 - **Profanity Detection**: Check if the text contains any profanity based on the
   censor pattern.
 - **Swear Words Extraction**: Extract a list of swear words found in the text.
