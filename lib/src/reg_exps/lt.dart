@@ -1,6 +1,14 @@
 part of '../censor_pattern_enum.dart';
 
 final RegExp _ltRegExp = RegExp(
-    r'\b(?:suka(?:s|m)?|jeb(?:ti|u|as)?|piz(?:da|das)?|chiu(?:s|m)?|kuk(?:as|s)|merga|vij(?:a|as))\b',
-    caseSensitive: false,
-    unicode: true);
+  r'(?<![a-ząčęėįšųūž])'
+  r'(?:'
+  r'byb[a-ząčęėįšųūž]*' // bybis, bybio, bybiu, bybiui...
+  r'|pizd[a-ząčęėįšųūž]*' // pizda, pizdos, pizdu, pizdinau...
+  r'|nahu(?:i|j)[a-ząčęėįšųūž]*' // nahui, nahuj, nahuja...
+  r'|blet[a-ząčęėįšųūž]*' // blet, bletai, bletu...
+  r')'
+  r'(?![a-ząčęėįšųūž])',
+  caseSensitive: false,
+  unicode: true,
+);

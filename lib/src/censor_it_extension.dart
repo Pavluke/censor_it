@@ -1,5 +1,9 @@
 part of 'censor_it_base.dart';
 
+/// Extension on [String] to provide censoring functionality.
+///
+/// This extension adds a method to [String] that allows for the creation of a [CensorIt] instance,
+/// which can be used to censor parts of the string based on a specified pattern and characters.
 extension CensorItExt on String {
   /// Creates an instance of [CensorIt] with the given text, censor pattern, and characters.
   ///

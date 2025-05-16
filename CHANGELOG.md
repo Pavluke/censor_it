@@ -1,3 +1,9 @@
+## 1.2.0
+
+- Refactored regexps
+- Added regexps tests
+- Deprecated stream
+
 ## 1.1.1
 
 - Update README.md

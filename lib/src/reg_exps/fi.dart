@@ -1,6 +1,13 @@
 part of '../censor_pattern_enum.dart';
 
 final RegExp _fiRegExp = RegExp(
-    r'(?:perse(?:t|n)?|siki(?:ä|ö|m|n)|sy(?:y|t|ö|m|n)|hullu|kurja|vittu|jätkä|pii|paska|saast(?:a|o))',
+    r'(?<![A-Za-zÀ-ÖØ-öø-ÿ])' // слева не буква (или начало)
+    r'(?:'
+    r'vit{1,2}[a-zåäö]*' // vittu, vitun, vittua, vittuun...
+    r'|(?:kyrp|kyrv)[aä][a-zåäö]*' // kyrpä, kyrpää, kyrvän...
+    r'|pillu[a-zåäö]*' // pillu, pillun, pilluja...
+    r'|huor[a-zåäö]*' // huora, huorat, huoran...
+    r')'
+    r'(?![A-Za-zÀ-ÖØ-öø-ÿ])',
     caseSensitive: false,
     unicode: true);
