@@ -1,4 +1,6 @@
-![Preview](images/censor_it_banner.png)
+<p align="center">
+  <img src="https://github.com/Pavluke/censor_it/blob/main/images/banner.gif?raw=true" alt="Preview" />
+</p>
 
 [![Pub](https://img.shields.io/pub/v/censor_it.svg)](https://pub.dartlang.org/packages/censor_it)
 

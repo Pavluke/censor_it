@@ -1,3 +1,6 @@
+## 1.2.2
+
+- Update README.md
 
 ## 1.2.1
 
