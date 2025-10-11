@@ -1,3 +1,14 @@
+## 1.2.4
+
+- Set type annotation on CensorPattern static methods
+- Update README.md
+- Update example
+- Update pubspec.yaml
+
+## 1.2.3
+
+- Update README.md
+
 ## 1.2.2
 
 - Update README.md

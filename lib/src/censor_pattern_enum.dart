@@ -95,7 +95,7 @@ enum CensorPattern {
   /// Creates a custom censor pattern from a list of existing patterns.
   ///
   /// [patterns] is a list of [CensorPattern] to combine.
-  static fromPatterns(List<CensorPattern> patterns) {
+  static CensorPattern fromPatterns(List<CensorPattern> patterns) {
     _customRegExp = _combineCensorPatterns(patterns);
     return CensorPattern._custom;
   }
@@ -103,13 +103,13 @@ enum CensorPattern {
   /// Creates a custom censor pattern from a given regular expression.
   ///
   /// [regExp] is the regular expression to use for the custom pattern.
-  static fromRegExp(RegExp regExp) {
+  static CensorPattern fromRegExp(RegExp regExp) {
     _customRegExp = regExp;
     return CensorPattern._custom;
   }
 
   /// Combines multiple censor patterns into a single regular expression.
-  ///
+  /// 
   /// [patterns] is a list of [CensorPattern] to combine.
   static RegExp _combineCensorPatterns(List<CensorPattern> patterns) {
     final combinedPattern =
