@@ -8,23 +8,21 @@ I'm sure the developer of this lib is an asshole!''';
 
   late CensorIt censoredText;
 
-  // Create an instance of CensorIt with the text and censor pattern
-  censoredText = CensorIt(text,
-      pattern: CensorPattern.fromPatterns(
-          [CensorPattern.russian, CensorPattern.english]));
+  // Create an instance of CensorIt with the text to be censored
+  censoredText = CensorIt(text, pattern: CensorPattern.english);
+
+  // Or you can create an instance of CensorIt with the text and some censor patterns
+  censoredText = CensorIt(text, pattern: CensorPattern.english);
 
   // Or you can use function from [String] extension
-  censoredText = text.censorIt(
-      pattern: CensorPattern.fromPatterns(
-          [CensorPattern.russian, CensorPattern.english]));
+  censoredText = text.censorIt(pattern: CensorPattern.fromPatterns([CensorPattern.russian, CensorPattern.english]));
 
-  // Get the list of swear words
-  final List<String> swearWords = censoredText.swearWords;
+  // Get the censored text
+  print(censoredText.censored);
 
   // Check if the text contains profanity
-  final bool hasProfanity = censoredText.hasProfanity;
+  print(censoredText.hasProfanity);
 
-  print('Censored text: $censoredText');
-  print('Has profanity: $hasProfanity');
-  print('Swear words: $swearWords');
+  // Get a list of swear words found in the text
+  print(censoredText.swearWords);
 }

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/Pavluke/censor_it/blob/main/images/banner.png?raw=true" alt="Banner" />
+  <img src="https://github.com/Pavluke/censor_it/blob/main/images/banner.png?raw=true" alt="CensorIt Banner" />
 </p>
 
 [![Pub](https://img.shields.io/pub/v/censor_it.svg)](https://pub.dartlang.org/packages/censor_it)
@@ -7,10 +7,11 @@
 Dart library for censoring text based on predefined patterns and customizable
 characters.
 
-## 🚀  Flutter Integration:
-For Flutter applications, use the package
-`flutter_censor_it`
-[GitHub](https://github.com/pavluke/flutter_censor_it) | [Pub.dev](https://pub.dev/packages/flutter_censor_it)
+## 🚀 Flutter Integration:
+
+For Flutter applications, use the package `flutter_censor_it`
+[GitHub](https://github.com/pavluke/flutter_censor_it) |
+[Pub.dev](https://pub.dev/packages/flutter_censor_it)
 
 ## Introduction
 
@@ -38,9 +39,16 @@ handle multiple languages and customize the characters used for censoring.
 ## Getting started
 
 Add censor_it to your `pubspec.yaml`:
+
 ```yaml
 dependencies:
   censor_it: ^<latest_version>
+```
+
+Or using the command:
+
+```bash
+dart pub add censor_it
 ```
 
 Import the package in your Dart file:
@@ -54,19 +62,24 @@ You can now use the CensorIt class to censor text:
 ```dart
 void main() {
 
-  const String text = "I don't give a fuck that there are a lot of obscene words here! I'm sure the developer of this lib is an asshole!";
+  const String text = '''
+I don't give a fuck that there are a lot of obscene words here!
+I'm sure the developer of this lib is an asshole!''';
 
-  late CensorIt censor;
+  late CensorIt censoredText;
 
   // Create an instance of CensorIt with the text to be censored
-  censor = CensorIt(text, pattern: CensorPattern.english);
+  censoredText = CensorIt(text, pattern: CensorPattern.english);
+
+    // Or you can create an instance of CensorIt with the text and some censor patterns
+  censoredText = CensorIt(text, pattern: CensorPattern.english);
 
  // Or you can use function from [String] extension
-  censor = text.censorIt(
-      pattern: CensorPattern.english);
+  censoredText = text.censorIt(pattern: CensorPattern.fromPatterns(
+          [CensorPattern.russian, CensorPattern.english]));
 
   // Get the censored text
-  print(censor.censored);
+  print(censoredText.censored);
 
   // Check if the text contains profanity
   print(censoredText.hasProfanity); // Output: true

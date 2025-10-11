@@ -1,3 +1,13 @@
+## 1.2.4
+
+- Update README.md
+- Update example
+- Update pubspec.yaml
+
+## 1.2.3
+
+- Update README.md
+
 ## 1.2.2
 
 - Update README.md
