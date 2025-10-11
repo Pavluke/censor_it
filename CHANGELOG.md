@@ -1,5 +1,6 @@
 ## 1.2.4
 
+- Set type annotation on CensorPattern static methods
 - Update README.md
 - Update example
 - Update pubspec.yaml
