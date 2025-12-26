@@ -23,7 +23,7 @@ topics:
   - dart-library
 
 screenshots:
-  - description: "Logo"
+  - description: "CensorIt Logo"
     path: images/logo.png
-  - description: "Banner"
+  - description: "CensorIt Banner"
     path: images/banner.png
