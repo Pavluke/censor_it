@@ -1,38 +1,52 @@
 import 'package:censor_it/censor_it.dart';
 import 'package:test/test.dart';
 
+import 'samples/base_sample.dart';
+
 typedef Samples = ({List<String> dirty, List<String> safe});
 
 class CensorItTest {
-  CensorItTest({required this.samples, required this.pattern});
-  final Samples samples;
-  final CensorPattern pattern;
+  CensorItTest(this.sample);
+  final BaseSample sample;
 
   void dirtyTest() {
-    test('Detect ${pattern.name} swear words', () {
-      final String textWithSwearWords = samples.dirty.toSet().join(' ');
+    test('Detect ${sample.pattern.name} swear words', () {
+      final String textWithSwearWords = sample.badWords.toSet().join(' ');
 
-      final CensorIt censorIt = CensorIt(textWithSwearWords, pattern: pattern);
+      final CensorIt censorIt = CensorIt.mask(
+        textWithSwearWords,
+        pattern: sample.pattern,
+        char: '*',
+      );
 
       final List<String> detectedSwearWords = censorIt.swearWords;
 
-      for (final String swearWord in samples.dirty) {
-        expect(detectedSwearWords, contains(swearWord));
+      for (final String badWords in sample.badWords) {
+        expect(detectedSwearWords, contains(badWords));
       }
     });
   }
 
   void safeTest() {
-    test('Ignore benign ${pattern.name} look-alikes', () {
-      final String benignText = samples.safe.toSet().join(' ');
-      final CensorIt censorIt = CensorIt(benignText, pattern: pattern);
+    test('Ignore benign ${sample.pattern.name} look-alikes', () {
+      final String benignText = sample.safeWords.toSet().join(' ');
+      final CensorIt censorIt = CensorIt.mask(
+        benignText,
+        pattern: sample.pattern,
+      );
 
-      expect(censorIt.swearWords, isEmpty,
-          reason: 'Detected swear words where there should be none.');
+      expect(
+        censorIt.swearWords,
+        isEmpty,
+        reason: 'Detected swear words where there should be none.',
+      );
 
-      for (final word in samples.safe) {
-        expect(censorIt.swearWords, isNot(contains(word)),
-            reason: 'False positive detected for "$word".');
+      for (final word in sample.safeWords) {
+        expect(
+          censorIt.swearWords,
+          isNot(contains(word)),
+          reason: 'False positive detected for "$word".',
+        );
       }
     });
   }
