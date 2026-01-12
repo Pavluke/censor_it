@@ -28,12 +28,14 @@ handle multiple languages and customize the characters used for censoring.
 
 ## Supported languages
 
+- 🇨🇳 Chinese (ZH)
 - 🇺🇸 English (EN)
 - 🇫🇮 Finnish (FI)
 - 🇫🇷 French (FR)
 - 🇩🇪 German (DE)
 - 🇮🇹 Italian (IT)
 - 🇰🇿 Kazakh (KZ)
+- 🇰🇷 Korean (KO)
 - 🇱🇻 Latvian (LV)
 - 🇱🇹 Lithuanian (LT)
 - 🇵🇹 Portuguese (PT)
@@ -136,7 +138,7 @@ final lengthBased = CensorIt.builder(
   builder: (word) => '[${word.length}]',
   pattern: LanguagePattern.english,
 );
-print(lengthBased.censored); // [7] shit, [4] this
+print(lengthBased.censored); // [7] [4], [4] this
 
 // Conditional replacement
 final conditional = CensorIt.builder(
@@ -144,7 +146,7 @@ final conditional = CensorIt.builder(
   builder: (word) => word.length > 4 ? '*******' : '***',
   pattern: LanguagePattern.english,
 );
-print(conditional.censored); // ******* shit, *** this
+print(conditional.censored); // ******* ***, *** this
 ```
 
 **Use case:** Complex logic, analytics, or custom formatting needs.
@@ -155,11 +157,11 @@ Replaces all profanity with the same fixed string.
 
 ```dart
 final fixed = CensorIt.replace(
-  'fucking shit',
+  'fucking shit!',
   replacement: '[censored]',
   pattern: LanguagePattern.english,
 );
-print(fixed.censored); // [censored] shit!
+print(fixed.censored); // [censored] [censored]!
 
 // Case preservation
 final preserved = CensorIt.replace(

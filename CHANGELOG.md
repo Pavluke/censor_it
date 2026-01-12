@@ -1,3 +1,17 @@
+text
+
+## 2.1.0
+
+### Added
+
+- **🇨🇳 Chinese (Mandarin) language support**
+- **🇰🇷 Korean language support**
+
+### Fixed
+
+- **`CensorItRandom.regenerate()` collision prevention** - Now guarantees
+  different censored text in 99.99% of cases
+
 ## 2.0.0
 
 ### Breaking Changes
