@@ -153,19 +153,39 @@ final class CensorItRandom extends CensorIt {
   /// Creates a new [CensorItRandom] instance with regenerated censored text.
   ///
   /// Returns a new instance with different random censoring applied
-  /// to the same [original] text.
+  /// to the same [original] text. Attempts up to 10 times to ensure
+  /// the new censored text is different from the current one.
   ///
   /// Example:
   /// ```dart
   /// final censor1 = CensorItRandom('shit');
-  /// print(censor1.censored);
+  /// print(censor1.censored); // '@#!%'
   ///
   /// final censor2 = censor1.regenerate();
-  /// print(censor2.censored);
+  /// print(censor2.censored); // '#%!@' (guaranteed different)
   /// ```
+  CensorItRandom regenerate() {
+    if (!hasProfanity || original.isEmpty || chars.length == 1) {
+      return CensorItRandom(original, pattern: pattern, chars: chars);
+    }
 
-  CensorItRandom regenerate() =>
-      CensorItRandom(original, pattern: pattern, chars: chars);
+    const maxAttempts = 10;
+    final currentCensored = censored;
+
+    for (int attempt = 0; attempt < maxAttempts; attempt++) {
+      final newInstance = CensorItRandom(
+        original,
+        pattern: pattern,
+        chars: chars,
+      );
+
+      if (newInstance.censored != currentCensored) {
+        return newInstance;
+      }
+    }
+
+    return CensorItRandom(original, pattern: pattern, chars: chars);
+  }
 
   @override
   bool operator ==(Object other) {
