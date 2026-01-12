@@ -6,6 +6,7 @@ part 'languages/es.dart';
 part 'languages/fi.dart';
 part 'languages/fr.dart';
 part 'languages/it.dart';
+part 'languages/ko.dart';
 part 'languages/kz.dart';
 part 'languages/lt.dart';
 part 'languages/lv.dart';
@@ -14,6 +15,7 @@ part 'languages/pt.dart';
 part 'languages/ru.dart';
 part 'languages/se.dart';
 part 'languages/ua.dart';
+part 'languages/zh.dart';
 
 /// Base class for language-specific censor patterns.
 ///
@@ -105,6 +107,9 @@ sealed class LanguagePattern implements CensorPattern {
         : CensorPattern.multi(patternsToCombine);
   }
 
+  /// {@macro zh_pattern}
+  static const LanguagePattern chinese = ZhPattern();
+
   /// {@macro en_pattern}
   static const LanguagePattern english = EnPattern();
 
@@ -122,6 +127,9 @@ sealed class LanguagePattern implements CensorPattern {
 
   /// {@macro kz_pattern}
   static const LanguagePattern kazakh = KzPattern();
+
+  /// {@macro ko_pattern}
+  static const LanguagePattern korean = KoPattern();
 
   /// {@macro lt_pattern}
   static const LanguagePattern lithuanian = LtPattern();
@@ -157,6 +165,7 @@ sealed class LanguagePattern implements CensorPattern {
     french,
     italian,
     german,
+    korean,
     kazakh,
     lithuanian,
     latvian,
@@ -166,5 +175,6 @@ sealed class LanguagePattern implements CensorPattern {
     spanish,
     swedish,
     ukrainian,
+    chinese,
   ];
 }

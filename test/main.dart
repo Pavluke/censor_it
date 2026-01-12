@@ -14,6 +14,7 @@ void main() {
       ItSample(),
       LvSample(),
       FrSample(),
+      KoSample(),
       KzSample(),
       LtSample(),
       PlSample(),
@@ -21,6 +22,7 @@ void main() {
       RuSample(),
       SeSample(),
       UaSample(),
+      ZhSample(),
     ].map((e) => CensorItTest(e));
 
     group('Dirty words detection', () {
