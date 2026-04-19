@@ -71,7 +71,7 @@ I'm sure the developer of this lib is an asshole!''';
 
   print('10. Multi-language censoring:');
   final multiLang = CensorIt.random(
-    'fuck you puta blyat',
+    'fuck you puta',
     pattern: LanguagePattern.fromLocales(['en', 'es', 'ru']),
   );
   print(multiLang.censored);

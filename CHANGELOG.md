@@ -1,4 +1,5 @@
-text
+## 2.1.1
+ - Downgrade min requirement sdk to 3.6.0
 
 ## 2.1.0
 
