@@ -15,5 +15,6 @@ extension CensoredX on String {
   /// {@macro censored_x.class}
   String censored({
     CensorPattern pattern = LanguagePattern.all,
-  }) => CensorIt.random(this, pattern: pattern).censored;
+  }) =>
+      CensorIt.random(this, pattern: pattern).censored;
 }

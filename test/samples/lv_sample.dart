@@ -8,28 +8,28 @@ class LvSample implements BaseSample {
 
   @override
   List<String> get badWords => [
-    'pist',
-    'pisies',
-    'pisu',
-    'pisās',
-    'pizda',
-    'pizdets',
-    'pizdām',
-    'dirsa',
-    'dirsā',
-    'dirš',
-    'pimpis',
-    'pimpi',
-    'pimpja',
-    'mauka',
-    'maukas',
-    'maukām',
-  ];
+        'pist',
+        'pisies',
+        'pisu',
+        'pisās',
+        'pizda',
+        'pizdets',
+        'pizdām',
+        'dirsa',
+        'dirsā',
+        'dirš',
+        'pimpis',
+        'pimpi',
+        'pimpja',
+        'mauka',
+        'maukas',
+        'maukām',
+      ];
 
   @override
   List<String> get safeWords => [
-    'kepistācija', // …pis…
-    'endirsēts', // …dirs…
-    'maukalons', // …mauk…
-  ];
+        'kepistācija', // …pis…
+        'endirsēts', // …dirs…
+        'maukalons', // …mauk…
+      ];
 }

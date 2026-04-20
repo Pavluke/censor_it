@@ -8,30 +8,30 @@ class FrSample implements BaseSample {
 
   @override
   List<String> get badWords => [
-    'putain',
-    'putains',
-    'pute',
-    'putes',
-    'nique',
-    'niqué',
-    'niquer',
-    'niquez',
-    'fils de pute',
-    'enculé',
-    'enculer',
-    'connard',
-    'connards',
-    'connasse',
-    'salope',
-    'salopes',
-    'bâtard',
-    'batard',
-  ];
+        'putain',
+        'putains',
+        'pute',
+        'putes',
+        'nique',
+        'niqué',
+        'niquer',
+        'niquez',
+        'fils de pute',
+        'enculé',
+        'enculer',
+        'connard',
+        'connards',
+        'connasse',
+        'salope',
+        'salopes',
+        'bâtard',
+        'batard',
+      ];
 
   @override
   List<String> get safeWords => [
-    'réputation', // …puta…
-    'technique', // …nique…
-    'abatardir', // …batard…
-  ];
+        'réputation', // …puta…
+        'technique', // …nique…
+        'abatardir', // …batard…
+      ];
 }

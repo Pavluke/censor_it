@@ -14,15 +14,15 @@ final class FiPattern implements LanguagePattern {
 
   @override
   RegExp get regExp => RegExp(
-    r'(?<![A-Za-zÀ-ÖØ-öø-ÿ])'
-    r'(?:'
-    r'vit{1,2}[a-zåäö]*' // vittu, vitun, vittua, vittuun...
-    r'|(?:kyrp|kyrv)[aä][a-zåäö]*' // kyrpä, kyrpää, kyrvän...
-    r'|pillu[a-zåäö]*' // pillu, pillun, pilluja...
-    r'|huor[a-zåäö]*' // huora, huorat, huoran...
-    r')'
-    r'(?![A-Za-zÀ-ÖØ-öø-ÿ])',
-    caseSensitive: false,
-    unicode: true,
-  );
+        r'(?<![A-Za-zÀ-ÖØ-öø-ÿ])'
+        r'(?:'
+        r'vit{1,2}[a-zåäö]*' // vittu, vitun, vittua, vittuun...
+        r'|(?:kyrp|kyrv)[aä][a-zåäö]*' // kyrpä, kyrpää, kyrvän...
+        r'|pillu[a-zåäö]*' // pillu, pillun, pilluja...
+        r'|huor[a-zåäö]*' // huora, huorat, huoran...
+        r')'
+        r'(?![A-Za-zÀ-ÖØ-öø-ÿ])',
+        caseSensitive: false,
+        unicode: true,
+      );
 }

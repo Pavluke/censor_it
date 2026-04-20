@@ -29,28 +29,32 @@ abstract class CensorIt {
     String text, {
     CensorPattern pattern = LanguagePattern.all,
     List<String>? chars,
-  }) => CensorItRandom(text, pattern: pattern, chars: chars);
+  }) =>
+      CensorItRandom(text, pattern: pattern, chars: chars);
 
   ///{@macro censor_it_builder}
   static CensorItBuilder builder(
     String text, {
     required ReplacementBuilder builder,
     CensorPattern pattern = LanguagePattern.all,
-  }) => CensorItBuilder(text, builder: builder, pattern: pattern);
+  }) =>
+      CensorItBuilder(text, builder: builder, pattern: pattern);
 
   /// {@macro censor_it_mask}
   static CensorIt mask(
     String text, {
     String char = '*',
     CensorPattern pattern = LanguagePattern.all,
-  }) => CensorItMask(text, char: char, pattern: pattern);
+  }) =>
+      CensorItMask(text, char: char, pattern: pattern);
 
   ///  {@macro censor_it_replace}
   static CensorItReplace replace(
     String text, {
     required String replacement,
     CensorPattern pattern = LanguagePattern.all,
-  }) => CensorItReplace(text, replacement: replacement, pattern: pattern);
+  }) =>
+      CensorItReplace(text, replacement: replacement, pattern: pattern);
 
   final String _text;
 

@@ -1,6 +1,5 @@
 name: censor_it_example
-description: CensorIt example.
-version: 2.1.1
+description: Example for censor_it package.
 publish_to: none
 
 environment:
@@ -9,6 +8,3 @@ environment:
 dependencies:
   censor_it:
     path: ../
-
-dev_dependencies:
-  lints: ^6.0.0

@@ -8,29 +8,29 @@ class ItSample implements BaseSample {
 
   @override
   List<String> get badWords => [
-    'cazzo',
-    'cazzi',
-    'cazzata',
-    'cazzate',
-    'cazzoni',
-    'coglione',
-    'coglioni',
-    'stronzo',
-    'stronzi',
-    'troia',
-    'troie',
-    'puttana',
-    'puttane',
-    'vaffanculo',
-    'merda',
-    'merde',
-    'merdoso',
-  ];
+        'cazzo',
+        'cazzi',
+        'cazzata',
+        'cazzate',
+        'cazzoni',
+        'coglione',
+        'coglioni',
+        'stronzo',
+        'stronzi',
+        'troia',
+        'troie',
+        'puttana',
+        'puttane',
+        'vaffanculo',
+        'merda',
+        'merde',
+        'merdoso',
+      ];
 
   @override
   List<String> get safeWords => [
-    'reputazione', // …puta…
-    'Picazzo', // …cazzo…
-    'astronomico', // …stron…
-  ];
+        'reputazione', // …puta…
+        'Picazzo', // …cazzo…
+        'astronomico', // …stron…
+      ];
 }

@@ -8,26 +8,26 @@ class LtSample implements BaseSample {
 
   @override
   List<String> get badWords => [
-    'bybis',
-    'bybio',
-    'bybiu',
-    'bybiui',
-    'pizda',
-    'pizdos',
-    'pizdu',
-    'pizdinau',
-    'nahui',
-    'nahuj',
-    'nahuja',
-    'blet',
-    'bletai',
-    'bletu',
-  ];
+        'bybis',
+        'bybio',
+        'bybiu',
+        'bybiui',
+        'pizda',
+        'pizdos',
+        'pizdu',
+        'pizdinau',
+        'nahui',
+        'nahuj',
+        'nahuja',
+        'blet',
+        'bletai',
+        'bletu',
+      ];
 
   @override
   List<String> get safeWords => [
-    'abybė', // …byb…
-    'kapizdėti', // …pizd…
-    'panahuija', // …nahui…
-  ];
+        'abybė', // …byb…
+        'kapizdėti', // …pizd…
+        'panahuija', // …nahui…
+      ];
 }

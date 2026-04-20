@@ -51,7 +51,7 @@ Add censor_it to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  censor_it: ^2.1.0
+  censor_it: ^2.1.1
 ```
 
 Or using the command:

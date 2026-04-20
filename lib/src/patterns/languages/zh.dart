@@ -4,7 +4,7 @@ part of '../language_pattern.dart';
 /// Chinese profanity pattern.
 ///  {@endtemplate}
 final class ZhPattern implements LanguagePattern {
-  /// {@macro za_pattern}
+  /// {@macro zh_pattern}
   const ZhPattern();
 
   @override

@@ -24,7 +24,7 @@ abstract interface class CensorPattern {
   /// {@macro custom_pattern_constructor}
   const factory CensorPattern.fromRegExp(RegExp regExp) = CustomPattern;
 
-  /// {@macro combined_pattern_constructor}
+  /// {@macro multi_censor_pattern_constructor}
   const factory CensorPattern.multi(List<CensorPattern> patterns) =
       MultiCensorPattern;
 }

@@ -8,28 +8,28 @@ class DeSample implements BaseSample {
 
   @override
   List<String> get badWords => [
-    'fick',
-    'ficken',
-    'fickst',
-    'verfickt',
-    'scheiße',
-    'scheisse',
-    'scheissdreck',
-    'arschloch',
-    'drecksau',
-    'hurensohn',
-    'fotze',
-    'fotzen',
-    'wichser',
-  ];
+        'fick',
+        'ficken',
+        'fickst',
+        'verfickt',
+        'scheiße',
+        'scheisse',
+        'scheissdreck',
+        'arschloch',
+        'drecksau',
+        'hurensohn',
+        'fotze',
+        'fotzen',
+        'wichser',
+      ];
 
   @override
   List<String> get safeWords => [
-    'Fickian',
-    'marschieren',
-    'Marschall',
-    'scheiden',
-    'Scheinwerfer',
-    'Fotozelle',
-  ];
+        'Fickian',
+        'marschieren',
+        'Marschall',
+        'scheiden',
+        'Scheinwerfer',
+        'Fotozelle',
+      ];
 }

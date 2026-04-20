@@ -8,23 +8,23 @@ class FiSample implements BaseSample {
 
   @override
   List<String> get badWords => [
-    'vittu',
-    'vitun',
-    'vittua',
-    'vittuun',
-    'kyrpä',
-    'kyrpää',
-    'kyrvän',
-    'pillu',
-    'pillut',
-    'huora',
-    'huorat',
-  ];
+        'vittu',
+        'vitun',
+        'vittua',
+        'vittuun',
+        'kyrpä',
+        'kyrpää',
+        'kyrvän',
+        'pillu',
+        'pillut',
+        'huora',
+        'huorat',
+      ];
 
   @override
   List<String> get safeWords => [
-    'avitamiini', // …vit…
-    'kapillaarinen', // …pill…
-    'ankyrin', // …kyr…
-  ];
+        'avitamiini', // …vit…
+        'kapillaarinen', // …pill…
+        'ankyrin', // …kyr…
+      ];
 }
