@@ -15,13 +15,13 @@ void main() {
       LvSample(),
       FrSample(),
       KoSample(),
-      KzSample(),
+      KkSample(),
       LtSample(),
       PlSample(),
       PtSample(),
       RuSample(),
-      SeSample(),
-      UaSample(),
+      SvSample(),
+      UkSample(),
       ZhSample(),
     ].map((e) => CensorItTest(e));
 

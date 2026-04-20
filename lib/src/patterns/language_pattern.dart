@@ -6,15 +6,15 @@ part 'languages/es.dart';
 part 'languages/fi.dart';
 part 'languages/fr.dart';
 part 'languages/it.dart';
+part 'languages/kk.dart';
 part 'languages/ko.dart';
-part 'languages/kz.dart';
 part 'languages/lt.dart';
 part 'languages/lv.dart';
 part 'languages/pl.dart';
 part 'languages/pt.dart';
 part 'languages/ru.dart';
 part 'languages/se.dart';
-part 'languages/ua.dart';
+part 'languages/uk.dart';
 part 'languages/zh.dart';
 
 /// Base class for language-specific censor patterns.
@@ -61,10 +61,11 @@ sealed class LanguagePattern implements CensorPattern {
   static LanguagePattern fromLocale(
     String locale, {
     LanguagePattern fallback = LanguagePattern.english,
-  }) => values.firstWhere(
-    (e) => e.locale == locale,
-    orElse: () => fallback,
-  );
+  }) =>
+      values.firstWhere(
+        (e) => e.locale == locale,
+        orElse: () => fallback,
+      );
 
   /// Creates a combined pattern from multiple locale codes.
   ///
@@ -125,8 +126,8 @@ sealed class LanguagePattern implements CensorPattern {
   /// {@macro de_pattern}
   static const LanguagePattern german = DePattern();
 
-  /// {@macro kz_pattern}
-  static const LanguagePattern kazakh = KzPattern();
+  /// {@macro kk_pattern}
+  static const LanguagePattern kazakh = KkPattern();
 
   /// {@macro ko_pattern}
   static const LanguagePattern korean = KoPattern();
@@ -149,11 +150,11 @@ sealed class LanguagePattern implements CensorPattern {
   /// {@macro es_pattern}
   static const LanguagePattern spanish = EsPattern();
 
-  /// {@macro se_pattern}
-  static const LanguagePattern swedish = SePattern();
+  /// {@macro sv_pattern}
+  static const LanguagePattern swedish = SvPattern();
 
   /// {@macro uk_pattern}
-  static const LanguagePattern ukrainian = UaPattern();
+  static const LanguagePattern ukrainian = UkPattern();
 
   /// Combined pattern for all supported languages.
   static const CensorPattern all = CensorPattern.multi(values);

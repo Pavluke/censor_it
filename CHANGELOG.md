@@ -1,5 +1,6 @@
 ## 2.1.1
- - Downgrade min requirement sdk to 3.6.0
+ - Downgrade min requirement Dart SDK to 3.6.0
+ - Replace ccTLD codes with ISO 639-1 language codes
 
 ## 2.1.0
 

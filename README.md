@@ -16,9 +16,9 @@ step-by-step instructions.
 
 ## 🚀 Flutter Integration:
 
-For Flutter applications, use the package `flutter_censor_it`
-[GitHub](https://github.com/pavluke/flutter_censor_it) |
-[Pub.dev](https://pub.dev/packages/flutter_censor_it)
+For Flutter applications, use the package `censor_it_flutter`
+[GitHub](https://github.com/pavluke/censor_it_flutter) |
+[Pub.dev](https://pub.dev/packages/censor_it_flutter)
 
 ## Introduction
 
@@ -34,7 +34,7 @@ handle multiple languages and customize the characters used for censoring.
 - 🇫🇷 French (FR)
 - 🇩🇪 German (DE)
 - 🇮🇹 Italian (IT)
-- 🇰🇿 Kazakh (KZ)
+- 🇰🇿 Kazakh (KK)
 - 🇰🇷 Korean (KO)
 - 🇱🇻 Latvian (LV)
 - 🇱🇹 Lithuanian (LT)
@@ -42,8 +42,8 @@ handle multiple languages and customize the characters used for censoring.
 - 🇵🇱 Polish (PL)
 - 🇷🇺 Russian (RU)
 - 🇪🇸 Spanish (ES)
-- 🇸🇪 Swedish (SE)
-- 🇺🇦 Ukrainian (UA)
+- 🇸🇪 Swedish (SV)
+- 🇺🇦 Ukrainian (UK)
 
 ## Getting started
 

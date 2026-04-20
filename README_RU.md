@@ -16,9 +16,9 @@ Dart библиотека для цензурирования текста на 
 
 ## 🚀 Интеграция с Flutter:
 
-Для Flutter приложений используйте пакет `flutter_censor_it`
-[GitHub](https://github.com/pavluke/flutter_censor_it) |
-[Pub.dev](https://pub.dev/packages/flutter_censor_it)
+Для Flutter приложений используйте пакет `censor_it_flutter`
+[GitHub](https://github.com/pavluke/censor_it_flutter) |
+[Pub.dev](https://pub.dev/packages/censor_it_flutter)
 
 ## Введение
 
@@ -32,7 +32,7 @@ Dart библиотека для цензурирования текста на 
 - 🇺🇸 Английский (EN)
 - 🇪🇸 Испанский (ES)
 - 🇮🇹 Итальянский (IT)
-- 🇰🇿 Казахский (KZ)
+- 🇰🇿 Казахский (KK)
 - 🇨🇳 Китайский (ZH)
 - 🇩🇪 Немецкий (DE)
 - 🇱🇻 Латышский (LV)
@@ -41,10 +41,10 @@ Dart библиотека для цензурирования текста на 
 - 🇵🇹 Португальский (PT)
 - 🇵🇱 Польский (PL)
 - 🇷🇺 Русский (RU)
-- 🇺🇦 Украинский (UA)
+- 🇺🇦 Украинский (UK)
 - 🇫🇮 Финский (FI)
 - 🇫🇷 Французский (FR)
-- 🇸🇪 Шведский (SE)
+- 🇸🇪 Шведский (SV)
 
 ## Начало работы
 
